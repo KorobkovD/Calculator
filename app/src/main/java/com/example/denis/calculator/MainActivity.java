@@ -1,5 +1,7 @@
 package com.example.denis.calculator;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -272,5 +274,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    /**
+     * Вывод информации о приложении
+     * @param item
+     */
+    public void about(MenuItem item){
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setTitle("О программе")
+                .setMessage("Простой калькулятор, выполняющий 4 арифметических действия " +
+                        "с десятичными дробями\n" +
+                        "        © Denis Korobkov, 2015")
+                .setIcon(R.drawable.icon_small)
+                .setCancelable(false)
+                .setNegativeButton("Закрыть",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        });
+        AlertDialog alert = builder.create();
+        alert.show();
     }
 }
