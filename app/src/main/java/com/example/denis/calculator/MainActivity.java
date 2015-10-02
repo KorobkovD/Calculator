@@ -146,27 +146,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (tvResult.getText().equals("")) {
+                if (tvResult.length() == 0) {
                     Snackbar.make(view, "Вы ничего не ввели!", Snackbar.LENGTH_SHORT).setAction("Action", null).show();
-                    return;
                 }
-                num2 = Float.parseFloat(tvResult.getText().toString().substring(operPos + 1));
-                switch (oper) {
-                    case "+":
-                        result = num1 + num2;
-                        break;
-                    case "-":
-                        result = num1 - num2;
-                        break;
-                    case "×":
-                        result = num1 * num2;
-                        break;
-                    case "/":
-                        result = num1 / num2;
-                        break;
+                else {
+                    num2 = Float.parseFloat(tvResult.getText().toString().substring(operPos + 1));
+                    switch (oper) {
+                        case "+":
+                            result = num1 + num2;
+                            break;
+                        case "-":
+                            result = num1 - num2;
+                            break;
+                        case "×":
+                            result = num1 * num2;
+                            break;
+                        case "/":
+                            result = num1 / num2;
+                            break;
+                    }
+                    tvResult.setText(Float.toString(result));
+                    btnDot.setEnabled(false);
                 }
-                tvResult.setText(Float.toString(result));
-                btnDot.setEnabled(false);
             }
         });
     }

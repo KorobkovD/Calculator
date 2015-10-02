@@ -28,7 +28,7 @@
             android:editable="false"
             android:textIsSelectable="true"
             android:gravity="right"
-            android:inputType="text">
+            android:inputType="none">
         </EditText>
         <LinearLayout
             android:orientation="horizontal"
